@@ -31,7 +31,6 @@
     call pathogen#infect()
 
     " For Google Go.
-    set rtp+=$GOSOURCE/misc/vim
     set t_Co=256
     filetype plugin indent on
 
@@ -106,26 +105,24 @@
     " Set the preferred color scheme.
     " http://www.vim.org/scripts/script.php?script_id=1488 
     if has('gui_running')
-    " Use a specific color scheme in file diff mode.
-		if &diff
-			colorscheme neon
-		else
-			"colorscheme zenburn
-			"colorscheme neon
-			"colors matrix
-			colors dawn
-		endif
+       " Use a specific color scheme in file diff mode.
+       if &diff
+       	  colorscheme neon
+    	  else
+	  "colorscheme zenburn
+	  "colorscheme neon
+	  colors matrix
+	  "colors dawn
+        endif
     else
 "		colorscheme zenburn
 "		hi Normal ctermbg=None
 "		hi Statement ctermbg=232
 "		highlight Search cterm=NONE ctermfg=grey ctermbg=blue
 "
-		"colors solarized
-
-		colors ir_black
-		hi Normal ctermbg=None
-
+	"colors solarized
+	colors ir_black
+	hi Normal ctermbg=None
     end
 
     " Underlines the current line that the cursor is on. Useful for searching.

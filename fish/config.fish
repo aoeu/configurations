@@ -1,7 +1,6 @@
 # GOPATH must be set to build and install packages outside the standard Go tree
 # It must contain an src directory with your packages underneath.
 set -x GOPATH (echo $HOME"/Documents/Code/Projects/go")
-set -x GOSOURCE (echo $HOME"/Documents/Code/Repositories/go")
 
 set -x PLAN9 (echo $HOME"/Documents/Code/Repositories/plan9/")
 set -x MYBIN (echo $HOME"/bin")
