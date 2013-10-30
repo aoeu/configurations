@@ -72,7 +72,6 @@
     " Use 'Ctrl+t' to add tabs in insert mode. Use >> or << keys in normal or visual mode.
     "inoremap <tab> <esc>
     "vnoremap <tab> <esc>
-	
 
     " Because other people driving my computer get pissed when they can't use the tab key...
     inoremap hh <esc>
@@ -106,23 +105,21 @@
     " http://www.vim.org/scripts/script.php?script_id=1488 
     if has('gui_running')
        " Use a specific color scheme in file diff mode.
-       if &diff
-       	  colorscheme neon
-    	  else
-	  "colorscheme zenburn
-	  "colorscheme neon
-	  colors matrix
-	  "colors dawn
+        if &diff
+            colorscheme neon
+        else
+            "colorscheme zenburn
+            "colorscheme neon
+            "colorscheme dawn
+            colorscheme matrix
         endif
     else
-"		colorscheme zenburn
-"		hi Normal ctermbg=None
-"		hi Statement ctermbg=232
-"		highlight Search cterm=NONE ctermfg=grey ctermbg=blue
-"
-	"colors solarized
-	colors ir_black
-	hi Normal ctermbg=None
+        "colorscheme zenburn
+        "hi Normal ctermbg=None
+        "hi Statement ctermbg=232
+        "highlight Search cterm=NONE ctermfg=grey ctermbg=blue
+        colors ir_black
+        hi Normal ctermbg=None
     end
 
     " Underlines the current line that the cursor is on. Useful for searching.
@@ -217,16 +214,16 @@
     let paste_mode = 0 " 0 = normal, 1 = paste
 
     " This is a function to toggle the value of the paste_mode variable.
-    func! Paste_on_off()
-       if g:paste_mode == 0
-          set paste
-          let g:paste_mode = 1
-       else
-          set nopaste
-          let g:paste_mode = 0
-       endif
-       return
-    endfunc
+	func! Paste_on_off()
+		if g:paste_mode == 0
+			set paste
+			let g:paste_mode = 1
+		else
+			set nopaste
+			let g:paste_mode = 0
+		endif
+		return
+	endfunc
 
 
 " Terminal_Mode_Settings
