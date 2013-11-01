@@ -12,6 +12,8 @@ function code
 			cd ~/Documents/Code/Bucket/comic_kit
 		case audio
 			cd ~/Documents/Code/Projects/go/src/audio
+		case sovereign
+			cd ~/Documents/Code/Repositories/sovereign
 		case '*'
 			cd ~/Documents/Code
 			if test -e $argv

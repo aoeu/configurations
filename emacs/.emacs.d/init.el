@@ -73,7 +73,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" default))))
+ '(custom-safe-themes (quote ("c377a5f3548df908d58364ec7a0ee401ee7235e5e475c86952dc8ed7c4345d8e" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -82,16 +82,16 @@
  )
 
 ;; Superfluous transparent background.
-(set-frame-parameter (selected-frame) 'alpha '(90 50))
+;;(set-frame-parameter (selected-frame) 'alpha '(90 50))
 
 ;; Lots of purple.
-(require 'purple-haze-theme)
+;;(require 'purple-haze-theme)
 
 (add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
 (require 'color-theme)
 
 ;;(color-theme-molokai)
-;;(load-theme 'monokai t)
+(load-theme 'wombat t)
 
 (require 'go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
