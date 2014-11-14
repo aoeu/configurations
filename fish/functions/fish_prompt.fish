@@ -6,5 +6,5 @@ function fish_prompt --description 'Write out the prompt'
        case root; set prompt_symbol '#'
        case '*';  set prompt_symbol '$'
    end
-   printf "\n[ %s@%s:%s%s%s ]\n%s " (set_color 62A)$USER (set_color blue)(hostname -s) (set_color $fish_color_cwd) $pwd (set_color normal) $prompt_symbol
+   printf "\n[ %s@%s:%s%s%s ]\n%s " (set_color purple)$USER (set_color blue)(hostname -s) (set_color $fish_color_cwd) $pwd (set_color normal) $prompt_symbol
 end
