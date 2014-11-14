@@ -20,19 +20,15 @@
 "
 
 " Temporary_Settings
+
+	syntax off
+
     " Hack to disable audio bell and visual bell in macvim 
     " (since macvim has no visual bell.)
     set visualbell
 
     " Equal split-pane sizes.
     set equalalways
-
-    " For vim pathogen / runtime path manipulation
-    call pathogen#infect()
-
-    " For Google Go.
-    set t_Co=256
-    filetype plugin indent on
 
     " Do not create .swp files and litter directories with them.
     set noswapfile
@@ -43,9 +39,6 @@
     " ':Num' to turn numbers on, ':Nonum' to turn off.
     :command! Num set number
     :command! Nonum set nonumber
-
-    " Start a bash shell with ConqueTerm.
-    :command! Bash ConqueTerm bash --rcfile ~/.bash_profile
 
 " Behavior_Shortcuts
 
@@ -90,40 +83,11 @@
     " Always show filename at the bottom of file.
     set ls=2
 
-    " Set Font for Mac.
-    set guifont=Monaco:h12
-
     " Show linenumbers.
     set number
 
-    " Enable syntax highlighting.
-    syntax on
-
-
-
-    " Set the preferred color scheme.
-    " http://www.vim.org/scripts/script.php?script_id=1488 
-    if has('gui_running')
-       " Use a specific color scheme in file diff mode.
-        if &diff
-            colorscheme neon
-        else
-            "colorscheme zenburn
-            "colorscheme neon
-            "colorscheme dawn
-            colorscheme matrix
-        endif
-    else
-        "colorscheme zenburn
-        "hi Normal ctermbg=None
-        "hi Statement ctermbg=232
-        "highlight Search cterm=NONE ctermfg=grey ctermbg=blue
-        colors ir_black
-        hi Normal ctermbg=None
-    end
-
     " Underlines the current line that the cursor is on. Useful for searching.
-    "set cursorline
+    set cursorline
     
     " Only underline the cursorline in GUI mode instead of shadowing the background.
     hi clear cursorline
@@ -142,11 +106,6 @@
     highlight OverLength ctermfg=white ctermbg=black guibg=#000000 guifg=#FFFFFF
     match OverLength /\%>80v.\+/
 
-    " Set line number and comment colors
-    highlight lineNr ctermfg=gray
-    highlight Comment ctermfg=gray
-
-
 " Navigation_Settings
 
     " This causes the cursor line to always be in the center of the screen, when possible.
@@ -154,21 +113,6 @@
     "  and is useful for when searching text.
     " This setting is currently disabled because it gets annoying when combined with mouse.
     "set scrolloff=50
-
-
-" Tabstop_Settings
-
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
-    au BufRead,BufNewFile *.go set noet ts=4 sw=4
-    set noexpandtab 
-
-    " I'm not entirely sure what this does.
-    set smarttab
-
-    " Automatically indents based on the line you were on when you went into insert mode
-    set cindent
 
 
 " Search_Settings
@@ -245,3 +189,4 @@
     set nofoldenable
 
     set foldlevel=1
+

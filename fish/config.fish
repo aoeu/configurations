@@ -1,12 +1,10 @@
 # GOPATH must be set to build and install packages outside the standard Go tree
 # It must contain an src directory with your packages underneath.
-set -x GOPATH (echo $HOME"/Documents/Code/Projects/go")
-
-set -x PLAN9 (echo $HOME"/Documents/Code/Repositories/plan9/")
+set -x GOPATH ~/go
+set -x GOBIN /usr/local/go/bin
 set -x MYBIN (echo $HOME"/bin")
-set -x RUBYPATH (echo "/usr/local/Cellar/ruby/1.9.3-p286/bin")
-set -x APPENGINE (echo $HOME"/Documents/Code/Bucket/go_appengine")
-set -x PATH (echo "/usr/local/bin") $PATH $MYBIN $GOBIN $RUBYPATH $PLAN9 (echo $PLAN9"/bin")
+
+set -x PATH (echo "/usr/local/bin") $PATH $GOBIN $MYBIN $GOPATH 
 
 fortune
 echo ☮ ♡ ∞
