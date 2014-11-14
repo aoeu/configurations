@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-for pkg in (ls | grep -v fish)
+for pkg in (ls | egrep -v '*.fish$' | egrep -v '*.md$')
 	stow $pkg -t $HOME
 end
 
