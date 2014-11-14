@@ -3,6 +3,7 @@
 set -x GOPATH ~/go
 set -x GOBIN /usr/local/go/bin
 set -x MYBIN (echo $HOME"/bin")
+set -x EDITOR (/usr/bin/vim)
 
 set -x PATH (echo "/usr/local/bin") $PATH $GOBIN $MYBIN $GOPATH 
 
