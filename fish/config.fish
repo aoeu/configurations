@@ -2,10 +2,10 @@
 # It must contain an src directory with your packages underneath.
 set -x GOPATH ~/go
 set -x GOBIN /usr/local/go/bin
-set -x MYBIN (echo $HOME"/bin")
-set -x EDITOR (/usr/bin/vim)
+set -x MYBIN $HOME"/bin"
+set -x EDITOR /bin/ed
 
-set -x PATH (echo "/usr/local/bin") $PATH $GOBIN $MYBIN $GOPATH 
+set -x PATH 'usr/local/bin' $PATH $GOBIN $MYBIN $GOPATH
 
 fortune
 echo ☮ ♡ ∞
