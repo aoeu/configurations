@@ -21,6 +21,8 @@
 
 " Temporary_Settings
 
+	execute pathogen#infect()
+
 	syntax off
 
     " Hack to disable audio bell and visual bell in macvim 
