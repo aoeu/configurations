@@ -5,7 +5,7 @@ set -x GOBIN /usr/local/go/bin
 set -x MYBIN $HOME"/bin"
 set -x EDITOR /bin/ed
 
-set -x PATH 'usr/local/bin' $PATH $GOBIN $MYBIN $GOPATH
+set -x PATH $GOBIN $MYBIN $GOPATH $PATH
 
 fortune
 echo ☮ ♡ ∞
