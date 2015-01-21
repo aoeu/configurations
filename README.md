@@ -2,8 +2,6 @@ Description
 -----------
 Various configuration files for Unix software.
 
-If you call them "dot files" around me, I will be confused as to whether you are referring to Unix hidden files or some kind of Unix resource configuration (rc) files.
-
 Organization
 ------------
 Files are categorized and placed into a named, relavant folder for easy
