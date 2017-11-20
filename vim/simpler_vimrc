@@ -1,0 +1,7 @@
+inoremap <tab> <esc>
+vnoremap <tab> <esc>
+nnoremap <space> :
+
+syntax off
+highlight NonText guifg=#EBFFFF guibg=#FFFFEA
+highlight Normal guifg=#EBFFFF guibg=#FFFFEA
