@@ -1,0 +1,41 @@
+/* For everything: */
+body {
+    background-color: #FFFFEA;
+}
+
+/* For wikipedia.org (?): */
+.mw-body,
+.parsoid-body,
+div#mw-panel,
+div#mw-head
+{
+    background-color: #FFFFEA;
+}
+
+/* For github.com: */
+.readme,
+.markdown-body,
+.plain,
+main
+{
+    background-color: #FFFFEA;
+}
+
+/* For slack.com: */
+.day_divider_label {
+    background-color: #FFFFEA;
+}
+#footer {
+    background-image: none;
+}
+
+/* For trello.com: */
+.board-canvas,
+.board-header
+ {
+    background-color: #FFFFEA;
+}
+.board-header-btn,
+.board-header-btn-icon {
+    color: #000000;
+}
