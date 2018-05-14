@@ -1,3 +1,49 @@
+/* Changes the background color of the area behind all possible tabs (and minimize / maximize window buttons).
+Note that setting the moz-appearance attribute to none is critical, as it causes the background-color attribute
+to otherwise be ignored. */
+:root:-moz-any([inFullscreen], [tabsintitlebar]) #TabsToolbar:not(:-moz-lwtheme) {
+	-moz-appearance: none !important;
+	-moz-font-smoothing-background-color: -moz-mac-vibrant-titlebar-dark;
+	background-color: rgb(238, 254, 255);
+	color: hsl(240, 9%, 98%); /* Color of the plus sign for the new-tab button. */
+	text-shadow: none;
+}
+
+/* Changes the background color of the active tab. */
+.tab-content {
+	background-color: rgb(238,254,255);
+}
+
+/* Changes the background color and border of the search bar. */
+#urlbar, .searchbar-textbox {
+	font-size: 1.25em;
+	background-color: rgb(238,254,255);
+}
+
+#nav-bar,
+#TabsToolbar,
+#toolbar-menubar {
+ background-image: none !important;
+ background-color: rgb(238, 254, 255) !important;
+}
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+toolbar,
+toolbarpalette {
+  background-color: rgb(238, 254, 255) !important;
+}
+
+toolbar#nav-bar {
+  background-image: none !important;
+  background-color: rgb(238, 254, 255) !important;
+}
+
+tab {
+  background-image: none !important;
+  background-color: rgb(238, 254, 255) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
 /* https://github.com/Timvde/UserChrome-Tweaks/blob/master/navbar/remove-back-button-circle.css */
 :root:not([uidensity="compact"]) #back-button > .toolbarbutton-icon {
   background-color: unset !important;

@@ -7,8 +7,7 @@ body {
 .mw-body,
 .parsoid-body,
 div#mw-panel,
-div#mw-head
-{
+div#mw-head {
     background-color: #FFFFEA;
 }
 
@@ -16,8 +15,7 @@ div#mw-head
 .readme,
 .markdown-body,
 .plain,
-main
-{
+main {
     background-color: #FFFFEA;
 }
 
@@ -31,8 +29,7 @@ main
 
 /* For trello.com: */
 .board-canvas,
-.board-header
- {
+.board-header {
     background-color: #FFFFEA;
 }
 .board-header-btn,
