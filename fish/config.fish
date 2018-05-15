@@ -1,11 +1,10 @@
-# GOPATH must be set to build and install packages outside the standard Go tree
-# It must contain an src directory with your packages underneath.
-set -x GOPATH ~/go
-set -x GOBIN /usr/local/go/bin
-set -x MYBIN $HOME"/bin"
-set -x EDITOR /bin/ed
+set -x GOROOT_BOOTSTRAP "/opt/go1.4"
+set -x GOROOT "/opt/go"
+set -x GOPATH "/opt/ir"
+set -x GOBIN "$GOPATH/bin"
+set -x PLAN9 "/opt/plan9port"
+set -x EDITOR "$GOBIN/A"
+set -x ANDROID_HOME "$HOME/Developer/android"
 
-set -x PATH 'usr/local/bin' $PATH $GOBIN $MYBIN $GOPATH
+set PATH  "$HOME/Developer/bin" "/opt/local/bin" "/opt/local/sbin" "/usr/local/bin" "/usr/bin" "/bin" "/usr/sbin" "/sbin"  "$GOROOT/bin" "$GOPATH/bin" "$PLAN9/bin" "$HOME/.cargo/bin" "$ANDROID_HOME/platform-tools" "$ANDROID_HOME/tools/bin" "$ANDROID_HOME/build-tools/25.0.2" "/opt/flutter/bin"
 
-fortune
-echo ☮ ♡ ∞
