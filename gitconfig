@@ -1,0 +1,9 @@
+[alias]
+        mash = merge --squash
+        squish = commit --amend --no-edit
+        shove = push --force
+        nudge = push --force-with-lease # h/t @ rtharrington: https://twitter.com/rtharrington/status/967640453851033600
+        sync = checkout
+        wat = status
+        branches = for-each-ref --sort='-authordate:iso8601' --format=' %(authordate:iso8601)%09%(refname:short)' refs/heads
+        recent = "!f() { git reflog | egrep -io 'moving from ([^[:space:]]+)' | awk '{ print $3 }' | awk ' !x[$0]++' | head -n${1-10}; }; f"
