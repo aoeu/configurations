@@ -1,0 +1,9 @@
+! Lifted from: https://wiki.archlinux.org/index.php/HiDPI#X_Resources
+! Used in conjunction with `echo 'xrdb -merge ~/.Xresources' > ~/.xinitrc
+Xft.dpi: 160
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
