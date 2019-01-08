@@ -1,0 +1,8 @@
+! This file has to be run from a shell resource-configuration file via:
+!	$ xmodmap <filename>
+clear Lock
+keycode 66 = Return
+keycode 36 = BackSpace
+keycode 22 = Escape
+keycode 9 = Caps_Lock
+
