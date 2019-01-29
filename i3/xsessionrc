@@ -1,0 +1,57 @@
+# In general, make sure you are using the libinput driver for your touchpad,
+# since libinput has much better "palm detection" algorithms than the synaptics
+# driver. You can test palm detection by pressing a key down in a text editor,
+# then trying to move the cursor by touching your palm or finger to the touchpad.
+# If the cursor doesn't move (or doesn't move easily) then you have good 
+# palm detection enabled. If not, check if the synaptics driver is installed.
+
+# Adjust the trackpoint acceleration, where -1 is unusably slow
+# and 1 is unusably fast. Decimals are allowed.
+xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.25
+
+# The below property settings are only for use with the synaptics driver 
+# (i.e. xserver-xorg-input-synaptics in ubuntu)
+# instead of the libinput driver. Note that the touchpad itself is made by
+# Synaptics, and the driver is referred to also as "Synaptics."
+# If you install the synaptics driver, it will be used as the driver
+# for your touchpad and other touchpad settings you've set (for libinput)
+# will no longer work.  One tip-off that this has happened is if your
+# "natural scrolling" is suddenly not working.
+#
+# To see your devices, use:
+# xinput list
+#
+# Use the device by name, the ID can change across reboots.
+#
+# To see the properties that your device supports:
+# xinput list-props 'Device Name'
+#
+# Also use the property by name, since its clearer and varies per system.
+#
+# To set the properties on your device:
+# xinput set-prop 'Device Name' 'Property Name' <value> [, value...]
+#
+# Make sure to comma-separate the values.
+# Some documentation of the values that can be used for the properties is at:
+#	https://www.x.org/archive/X11R7.5/doc/man/man4/synaptics.4.html
+
+# Use "natural scrolling" for the touchpad. You'll want to get the values first,
+# (i.e. xinput list-props 'SynPS/2 Synaptics TouchPad' | grep Synaptics Scrolling Distance)
+# and put a negative sign in front of each value.
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Scrolling Distance' -114 -114
+
+# You can try enabling palm detection for synaptics, but this may have no obvious effect:
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Palm Detection' 1
+#
+# Try setting the finger pressure required for a touch to help mitigate the touchpad
+# interfering with typing. The last 3 values are:
+#	"minimum finger pressure to respresent releasing a touch of the touchpad"
+#	"minimum finger pressure to represent a touch touchpad"
+#	"minimum finger pressure to represent a press of the touchpad" (Keep at 0)
+# You can get a better idea of what to use by using the libinput tools:
+#	sudo apt install libinput-tools
+#	sudo libinput measure touchpad-pressure
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Synaptics Finger' 32, 35, 0
+
+# If the palm detection is very bad, temporarily give up and disable the touchpad.
+# xinput set-prop 'SynPS/2 Synaptics TouchPad' 'Device Enabled' 0
