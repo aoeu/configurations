@@ -1,14 +1,8 @@
 # Configuration for Alacritty, the GPU enhanced terminal emulator
-padding:
-  x: 2
-  y: 0
 
 # "Thin strokes" is a macOS specific setting for retina displays:
 use_thin_strokes: true
 
-dimensions:
-  columns: 0
-  lines: 0
 
 # Display tabs using this many cells (changes require restart)
 tabspaces: 8
