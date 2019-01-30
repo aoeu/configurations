@@ -10,6 +10,7 @@ to otherwise be ignored. */
 }
 
 /* Changes the background color of the active tab. */
+/* Also overwrites "underline" color for "Multi-Account Container" tabs */
 .tab-content {
 	background-color: rgb(238,254,255);
 }
