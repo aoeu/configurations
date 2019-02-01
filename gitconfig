@@ -9,5 +9,8 @@
 	nudge = push --force-with-lease # h/t @ rtharrington: https://twitter.com/rtharrington/status/967640453851033600
 	sync = checkout
 	wat = status
+	diverge = checkout -b
+	branchname = rev-parse --abbrev-ref HEAD
+	branches = !git for-each-ref --format='%(refname:short)' refs/heads/
 	trail = !git reflog | egrep -io 'moving from ([^[:space:]]+)' | cut -d' ' -f3 | head -10
 	recent = !git reflog | egrep -io 'moving from ([^[:space:]]+)' | cut -d' ' -f3 | awk '!x[$0]++' |  head -10
