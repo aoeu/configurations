@@ -1,1 +1,16 @@
-xrdb -merge ~/.Xresources
+#!/bin/sh
+#
+# ~/.xinitrc is loaded by xinit, which is usually loaded by startx.
+# (startx a front-end for xinit.) xinit launches the X window server.
+#
+# ~/.xinitrc is for configuring GUI-related resources (xmodmap)
+# and for loading X resources (xrdb).
+#
+# ~/.xinitrc does not seem to automatically load on Ubuntu and
+# must be sourced from ~/.xsessionrc
+#
+test -f ~/configurations/i3/Xresources && \
+	xrdb -merge ~/configurations/i3/Xresources
+
+test -f ~/configurations/keyboards/linux/Xmodmap && \
+	xmodmap ~/configurations/keyboards/linux/Xmodmap
