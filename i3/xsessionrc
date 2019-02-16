@@ -1,3 +1,9 @@
+# ~/.xsessionrc is (purportedly) only used on Debian and Debian-derivative systems,
+# as opposed to .xinitrc or .xsession (note no trailing "rc") which are part of X.
+# All window managers load .xsessionrc on GUI login for Debian-derivative systems.
+# startx will load ~/.xsessionrc in absence of ~/.xinitrc
+# https://unix.stackexchange.com/a/281923/240912
+
 # In general, make sure you are using the libinput driver for your touchpad,
 # since libinput has much better "palm detection" algorithms than the synaptics
 # driver. You can test palm detection by pressing a key down in a text editor,
