@@ -1,5 +1,12 @@
-! Lifted from: https://wiki.archlinux.org/index.php/HiDPI#X_Resources
-! Used in conjunction with `echo 'xrdb -merge ~/.Xresources' > ~/.xinitrc
+! Xresources is loaded with xrdb into the RESOURCE_MANAGER property of the X11 root window.
+! Whenever any program looks up a resource, it is read straight from RESOURCE_MANAGER.
+! https://superuser.com/a/243916/48475
+!
+! This file is meant to be used in conjunction with xinit:
+!	`echo 'xrdb -merge ~/.Xresources' > ~/.xinitrc
+!
+! Some settings are lifted from: https://wiki.archlinux.org/index.php/HiDPI#X_Resources
+!
 Xft.dpi: 160
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
