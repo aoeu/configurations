@@ -1,5 +1,11 @@
-! This file has to be run from a shell resource-configuration file via:
+! This file can be run from a shell or resource-configuration file via:
 !	$ xmodmap <filename>
+!
+! Alternatively, if running GDM (a GUI for logging in),
+! the file will be automatically loaded if stored at ~/.Xmodmap
+!
+! https://wiki.archlinux.org/index.php/Xmodmap
+!
 clear Lock
 keycode 66 = Return
 keycode 36 = BackSpace
