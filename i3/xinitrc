@@ -13,4 +13,5 @@ test -f ~/configurations/i3/Xresources && \
 	xrdb -merge ~/configurations/i3/Xresources
 
 test -f ~/configurations/keyboards/linux/Xmodmap && \
-	xmodmap ~/configurations/keyboards/linux/Xmodmap
+	test 'eDP-1' = $(xrandr | grep '\<connected\>' | awk '{print $1}' | tail -1) && \
+		xmodmap ~/configurations/keyboards/linux/Xmodmap
