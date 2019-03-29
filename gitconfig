@@ -28,3 +28,6 @@
 	recommit = "!f() { test -z $1 && echo 'usage: git recommit [SHA]' >&2 || git cherry-pick $1 && git rebase --ignore-date HEAD^1; }; f"
 	follow = "!f() { git branch --set-upstream-to $1/$(git branchname) $(git branchname); }; f"
 
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+	insteadOf = https://github.com/
