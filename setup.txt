@@ -1,0 +1,27 @@
+# This file is quickly written, spur-of-the moment notes
+# about what had to be manually done to setup the configurations
+# on a new linux install the configurations git repostiory.
+# TODO(aoeu): gleam what steps are necessary from this file, write 
+# a new setup / install script (similar to the former fish functions
+# or shell script that used GNU stow, but without depending on any
+# software.
+
+ln -s /home/aoeu/alacritty/target/release/alacritty /home/aoeu/bin/alacritty 
+
+# To generate i3 config scratch:
+# i3 configuration was screwed up because the config was generated while keyboard was in dvorak:
+
+  rm ~/.config/i3/config
+  sudo dpkg-reconfigure keyboard-configuration 
+  set the keyboard to qwerty
+  log into i3 again to regenerate config 
+  set keys back to dvroak
+
+ln -s ~/configurations/i3/i3config ~/.config/i3/config
+
+ln -s ~/configurations/tmux/tmux-linux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+it is unclear if tpm is actually working 
+
+ln -s ~/configurations/vim/minimal_vimrc ~/.vimrc
+ln -s /home/aoeu/configurations/i3/workspaces.sh /home/aoeu/bin/workspaces
