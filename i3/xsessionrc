@@ -37,6 +37,9 @@ xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.25
 # and 1 is unusably fast. Decimals are allowed.
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.25
 
+# Emulate the middle mouse button.
+xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Middle Emulation Enabled' 1
+
 # The below property settings are only for use with the synaptics driver 
 # (i.e. xserver-xorg-input-synaptics in ubuntu)
 # instead of the libinput driver. Note that the touchpad itself is made by
