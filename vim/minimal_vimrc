@@ -1,5 +1,3 @@
-inoremap <tab> <esc>
-vnoremap <tab> <esc>
 nnoremap <space> :
 
 syntax off
