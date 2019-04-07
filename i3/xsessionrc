@@ -38,7 +38,10 @@ xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.25
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.25
 
 # Emulate the middle mouse button.
-xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Middle Emulation Enabled' 1
+xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Middle Emulation Enabled' 1
+
+# Enable clicking and dragging of middle mouse button (instead of track-pad based scrolling).
+xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Scroll Method Enabled' 0 0 0
 
 # The below property settings are only for use with the synaptics driver 
 # (i.e. xserver-xorg-input-synaptics in ubuntu)
