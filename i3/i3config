@@ -59,6 +59,9 @@ bindsym $mod+d exec dmenu_run
 # i3-dmenu-desktop is a dmenu wrapper that only displays applications shipping a .desktop file.
 bindsym $mod+Shift+D exec --no-startup-id i3-dmenu-desktop
 
+# Press the 'print screen' key, and click and drag to create a screenshot as a file, that is copied to clipboard.
+bindsym --release Print exec "scrot --select ~/Pictures/screenshot_$(date --iso-8601='seconds').png --exec 'xclip -selection c -t image/png < $f'"
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
