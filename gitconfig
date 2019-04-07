@@ -2,6 +2,9 @@
 	email = 678571+aoeu@users.noreply.github.com
 	name = Travis McDemus
 
+[core]
+	editor = A
+
 [alias]
 	edits = diff --name-only --diff-filter=ACM
 	stage = add
@@ -30,5 +33,4 @@
 	publish = "!f() { git push $1 $(git branchname); }; f"
 
 [url "git@github.com:"]
-	insteadOf = https://github.com/
 	insteadOf = https://github.com/
