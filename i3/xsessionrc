@@ -41,6 +41,8 @@ xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.25
 xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Middle Emulation Enabled' 1
 
 # Enable clicking and dragging of middle mouse button (instead of track-pad based scrolling).
+# https://bbs.archlinux.org/viewtopic.php?pid=1791624#p1791624
+# https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html
 xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Scroll Method Enabled' 0 0 0
 
 # The below property settings are only for use with the synaptics driver 
