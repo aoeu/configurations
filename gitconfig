@@ -33,6 +33,7 @@
 	publish = "!f() { git push $1 $(git branchname); }; f"
 	preserve = "stash push --message"
 	restore = "!f() {  git stash apply stash^{/$*};  }; f"
+	sha = "rev-parse --verify HEAD"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
