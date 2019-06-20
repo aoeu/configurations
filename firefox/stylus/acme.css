@@ -1,0 +1,41 @@
+  /******/
+ /* RC */
+/******/
+
+.rooms-list, .sidebar__header, .sidebar__footer, .rc-header, .rc-header--room {
+    background-image: none;
+    background: #EAFFFF;
+}
+
+div[class^="rc-header"], div[class*=" rc-header"] {
+    background: #EAFFFF; 
+}
+
+.sidebar-item, .sidebar-item--unread {
+    color: black;
+}
+
+.sidebar-item--unread {
+    color: black;
+}
+
+.sidebar-item--active {
+    background: #9EEEEE;
+}
+
+div[class^="message"], div[class*=" message"], .rc-message-box {
+    background: #FFFFEA; 
+}
+
+  /*********/
+ /* Slack */
+/*********/
+
+.c-message {
+    background: #FFFFEA;
+}
+
+/* bottom  of footer, file uplgoad button, input text box background */
+div#footer_msgs, button#primary_file_button, div[class*="ql-editor ql-blank"]{
+    background:  #EAFFFF;
+}
