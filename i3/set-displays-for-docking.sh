@@ -1,10 +1,22 @@
 #!/bin/sh
 logfile='/tmp/docking.log'
 date > $logfile
-if [ 'eDP-1' = $(xrandr | grep '\<connected\>' | awk '{print $1}' | tail -1) ] ; then
+
+connectedDisplays=$(xrandr | grep '\<connected\>'  | awk '{print $1}' | sort | tr '\n' ',')
+
+if [ 'eDP-1,' = "$connectedDisplays" ] ; then
 	echo 'not docked' >> $logfile
-	xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --off --output eDP-1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output DP-2 --off
-else
+	xrandr  --output eDP-1 --primary --mode 2560x1440 \
+            --output HDMI-1 --off \
+            --output DP-2 --off &&  \
+                        exit 0
+fi
+
+
+if [  'DP-2,eDP-1,HDMI-1,' = "$connectedDisplays" ] ; then
 	echo 'docked' >> $logfile
-	xrandr --output HDMI-2 --off --output HDMI-1 --off --output DP-1 --primary --mode 3840x2160 --pos 2560x0 --rotate normal --output eDP-1 --off --output DP-2 --off
+	xrandr  --output eDP-1  --off \
+            --output HDMI-1 --mode 1920x1080 --rotate left \
+            --output DP-2 --mode 3840x2160 --rotate normal --right-of HDMI-1 && \
+                        exit 0
 fi

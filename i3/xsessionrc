@@ -16,7 +16,7 @@ test -f ~/configurations/i3/xinitrc && \
 # i3 is a turd about putting workspaces on displays that you want disabled,
 # or on screens of closed laptops unless arandr settings are punched in exactly here
 test -f ~/configurations/i3/set-displays-for-docking.sh && \
-	source ~/configurations/i3/set-displays-for-docking.sh
+	~/configurations/i3/set-displays-for-docking.sh
 
 # because the previous command causes weird tiling of a background we never
 # wanted set in the first place:
