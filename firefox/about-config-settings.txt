@@ -1,0 +1,4 @@
+# TODO: find out how to automatically set these keys / values:
+
+layers.acceleration.force-enabled;true
+browser.zoom.siteSpecific;false
