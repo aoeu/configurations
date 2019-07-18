@@ -29,21 +29,27 @@ which feh && feh --bg-fill /home/aoeu/Pictures/tan-tile.png
 # If the cursor doesn't move (or doesn't move easily) then you have good 
 # palm detection enabled. If not, check if the synaptics driver is installed.
 
+
 # Adjust the trackpoint acceleration, where -1 is unusably slow
 # and 1 is unusably fast. Decimals are allowed.
-xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Accel Speed' -0.25
+xinput set-prop 'libinput Accel Speed' -0.25
 
 # Adjust the trackpad acceleration, where -1 is unusably slow
 # and 1 is unusably fast. Decimals are allowed.
 xinput set-prop 'SynPS/2 Synaptics TouchPad' 'libinput Accel Speed' 0.25
 
+# Usually the device is named "TPPS/2 IBM TrackPoint" or "TPPS/2 Elan TrackPoint"
+ deviceName=`xinput list | grep 'TPPS.*TrackPoint' | awk '{print $3" "$4" "$5}'`
+
+# deviceID=`xinput list | grep 'TPPS.*TrackPoint' | sed -E 's/^.*id=([0-9]+).*$/\1/g'`
+
 # Emulate the middle mouse button.
-xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Middle Emulation Enabled' 1
+xinput set-prop "$deviceName" 'libinput Middle Emulation Enabled' 1
 
 # Enable clicking and dragging of middle mouse button (instead of track-pad based scrolling).
 # https://bbs.archlinux.org/viewtopic.php?pid=1791624#p1791624
 # https://wayland.freedesktop.org/libinput/doc/latest/scrolling.html
-xinput set-prop 'TPPS/2 Elan TrackPoint' 'libinput Scroll Method Enabled' 0 0 0
+xinput set-prop "$deviceName" 'libinput Scroll Method Enabled' 0 0 0
 
 # The below property settings are only for use with the synaptics driver 
 # (i.e. xserver-xorg-input-synaptics in ubuntu)
