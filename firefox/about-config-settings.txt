@@ -2,3 +2,4 @@
 
 layers.acceleration.force-enabled;true
 browser.zoom.siteSpecific;false
+browser.fullscreen.autohide;false
