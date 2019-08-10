@@ -35,6 +35,7 @@
 	restore = "!f() {  git stash apply stash^{/$*};  }; f"
 	sha = "rev-parse --verify HEAD"
 	delete = "!f() { s=$(git branchname); ( git checkout develop || git checkout master ) && git branch -D "$s"; }; f"
+	accept = "!f() { s="$*"; test -z "$s" && echo >&2 'usage: git accept <commit message>' && exit 1;  git commit -m "${s}"; }; f"
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
