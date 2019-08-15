@@ -19,17 +19,36 @@ function fish_prompt --description 'Write out the prompt'
       set suffix '>'
   end
 
-  printf '\n%s@%s in ' "$USER" (prompt_hostname)
+
+  set_color normal
+  printf '\n%s@%s' "$USER" (prompt_hostname)
+
+  set_color normal
+  printf ' in '
+
   set_color $color_cwd
-  printf "%s" "$PWD"
+
+  # Overrides for a long directory name that cause the prompt to truncate:
+  # * Set LONG_DIR and SHORT_DIR as environment variables.
+  # * LONG_DIR: the directory you are frequently in for a project that causes prompt to trunctate.
+  # * SHORT_DIR: the directory you would like to abbreviate LONG_DIR to in the fish prompt.
+  set longDir "$LONG_DIR"
+  set shortDir "$SHORT_DIR"
+  set currentDir (echo -n "$PWD" | grep -Eq "^$longDir.*\$" ; and echo -n "$PWD" | sed "s#^$longDir#$shortDir#" ; or echo -n "$PWD")
+  echo -n "$currentDir" | sed "s#^$HOME#~#"
+
   set_color normal
   set prompt_git (__fish_git_prompt)
   set prompt_git_prefix ""
-  test ! "" = "$prompt_git"; and set prompt_git_prefix " on"
-  printf '%s' "$prompt_git_prefix"
+
+  test ! "" = "$prompt_git"; and set prompt_git_prefix ' on'
+  test ! "" = "$prompt_git_prefix"; and printf '%s' "$prompt_git_prefix"
   set_color $fish_color_redirection
   printf '%s' "$prompt_git"
+
   set_color normal
   printf ' at %s' (date +'%Y-%d-%m %H:%M:%S')
+
+  set_color normal
   printf '\n%s ' "$suffix"
 end
