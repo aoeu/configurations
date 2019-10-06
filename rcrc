@@ -1,0 +1,64 @@
+fn echoerr { echo $* >[1=2] }
+
+fn errorf { printf $* >[1=2] }
+
+fn pwd { echo $PWD }
+
+fn pushd {
+	dirs = ($PWD $dirs)
+	builtin cd $1
+	PWD = `{builtin pwd}
+}
+
+fn popd {
+	switch ($#*) {
+	case 0
+	case 1
+		test $1 -gt $#dirs && 
+			errorf 'popd: argument %d is larger than dir stack size of %d' $1 $#dirs &&
+			return 1
+	case *
+		echoerr 'popd: usage: popd [n]' && return 1
+		
+	}
+	# TODO(aoeu): Validate argument is an unsigned integer.
+
+	~ $dirs () && return 0
+
+	for (i in `{seq 1 $1}) {
+		builtin cd $dirs(1);
+		PWD = $dirs(1)
+		echo $PWD 
+		* = $dirs
+		shift
+		dirs = $*
+	}
+}
+
+fn cd {
+	~ $* () && * = $home
+	! ~ $#* 1 && echo 'cd: too many arguments' >[1=2] && return 1
+	test -r $* && pushd $* || { echo cd: $* does not exist >[1=2] && return 1 }
+}
+
+fn back { popd $* }
+
+fn up {
+	switch ($#*) {
+	case 0
+		_up__n = 1
+	case 1
+		_up__n = $1
+	case *
+		echoerr 'up: usage: up [n]' && return 1
+	}
+	# TODO(aoeu): Validate argument is an unsigned integer.
+	for (i in `{seq 1 $1}) {
+		cd ..
+	}
+}
+
+
+fn dirs { echo $dirs }
+
+PWD = `{builtin pwd} && dirs = $PWD # kickstart
