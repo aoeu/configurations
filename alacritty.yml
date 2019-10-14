@@ -75,8 +75,8 @@ colors:
     background: '0xFFFFEA'
     foreground: '0x000000'
   cursor:
-    cursor: '0xefeda7'
-    text: '0x000000'
+    cursor: '0x9a9857'
+    text: '0xFFFFEA'
 
   # Normal colors
   normal:
