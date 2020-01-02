@@ -69,3 +69,6 @@ n::b
 ,::w
 .::v
 /::z
+
+F7::
+WinSet, AlwaysOnTop, Toggle, A
