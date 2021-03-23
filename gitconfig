@@ -36,6 +36,7 @@
 	rewrite = "git checkout stash -- ."
 	sha = "rev-parse --verify HEAD"
 	delete = "!f() { s=$(git branchname); ( git checkout develop || git checkout master ) && git branch -D "$s"; }; f"
+	obliterate = "!f() { s=$(git branchname); git push -d "$s" && git delete }; f"
 	accept = "!f() { s="$*"; test -z "$s" && echo >&2 'usage: git accept <commit message>' && exit 1;  git commit -m "${s}"; }; f"
 
 [mergetool]
