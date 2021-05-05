@@ -1,4 +1,3 @@
-function set_fish_colors_framebuffer
 # Set everything to white, erroneous text (that we're still typing) will be bold, not red.
 set fish_color_command white
 set fish_color_param white
@@ -18,4 +17,3 @@ set fish_color_end green
 set fish_color_match blue
 set fish_color_escape blue
 set fish_color_operator blue
-end
