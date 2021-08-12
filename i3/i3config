@@ -11,7 +11,9 @@ set $mod Mod1
 
 # Startup compton so Firefox doesn't have screen-tearing.
 # exec --no-startup-id compton --config /home/aoeu/configurations/i3/compton.config --daemon
-exec --no-startup-id compton --daemon --backend glx --glx-no-stencil --paint-on-overlay --vsync opengl-swc
+# --paint-on-overlay was leading to an error in the X log.
+# exec --no-startup-id compton --daemon --backend glx --glx-no-stencil --paint-on-overlay --vsync opengl-swc
+exec --no-startup-id compton --daemon --backend glx --glx-no-stencil --vsync opengl-swc
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
