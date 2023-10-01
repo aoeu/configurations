@@ -9,4 +9,4 @@ battery_percent=$(head /sys/class/power_supply/BAT0/capacity)
 
 test "$battery_percent" -lt "$threshold" && \
 	DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id --user)/bus" \
-	notify-send --wait --urgency=critical "$message"
+	notify-send --urgency=critical "$message"
