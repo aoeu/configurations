@@ -1,0 +1,33 @@
+// Beat and measure count overlay
+
+font="Arial"; 
+
+//@param1:size 'text height' 0.1 0.01 0.5 0.25 0.01
+//@param2:ypos 'y position' 0.90 0 1 0.5 0.01
+//@param3:xpos 'x position' 0.5 0 1 0.5 0.01
+//@param4:border 'border' 0.03 0 1 0.5 0.01
+//@param5:fgc 'text bright' 1.0 0 1 0.5 0.01
+//@param6:fga 'text alpha' 1.0 0 1 0.5 0.01
+//@param7:bgc 'bg bright' 0 0 1 0.5 0.01
+//@param8:bga 'bg alpha' 0.5 0 1 0.5 0.01
+//@param9:h_off 'hours offset' 0 -23 23 0 1
+//@param10:m_off 'minutes offset' 0 -59 59 0 1
+//@param11:s_off 'seconds offset' 0 -59 59 0 1
+//@param12:f_off 'frames offset' 0 -29 29 0 1
+
+beatNumber=project_time_qn;
+eightCountNumber=0;
+
+project_time_qn < 8 ? beatNumber = 0 : beatNumber = ((project_time_qn - 8) % 8) + 1;
+project_time_qn < 8 ? eightCountNumber = 0 : eightCountNumber = ((project_time_qn - 8) / 8) + 1;
+
+#timecode = sprintf(#, "%d BPM: 8-count #%d, beat %02d",  project_tempo, eightCountNumber, beatNumber);
+
+gfx_blit(0,1);
+gfx_setfont(size*project_h,font,'B');
+gfx_str_measure(#timecode,txtw,txth);
+yt = (project_h- txth*(1+border*2))*ypos;
+gfx_set(bgc,bgc,bgc,bga);
+gfx_fillrect(xpos * (project_w-txtw*(1+border*2)), yt, txtw*(1+border*2), txth*(1+border*2));
+gfx_set(fgc,fgc,fgc,fga);
+gfx_str_draw(#timecode,xpos * (project_w-txtw),yt+txth*border);
