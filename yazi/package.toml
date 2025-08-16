@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "dedukun/bookmarks"
+rev = "fbb7c00"
+hash = "1d231a808d3344546380df33daf43e91"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "55bf699"
+hash = "7918aab6a71caf31b58411f789195677"
+
+[flavor]
+deps = []
