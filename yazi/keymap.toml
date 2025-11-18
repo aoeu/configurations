@@ -1,4 +1,9 @@
 [[mgr.prepend_keymap]]
+on = [ "h" ]
+run = "leave"
+desc = "Go up to the parent directory (if any) like the left arrow insead of the default config of previous directory (which could be anywhere)."
+
+[[mgr.prepend_keymap]]
 on = [ "m" ]
 run = "plugin bookmarks save"
 desc = "Save current position as a bookmark"
