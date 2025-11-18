@@ -1,16 +1,24 @@
+# This is a hack of the `cd` function that ships with fish,
+# usually stored at `/usr/share/fish/functions/cd.fish`
 #
-# Wrap the builtin cd command to maintain directory history.
+# For all shells, the builtin `cd` command has no flags, and only ever takes one argument, if any.
+#
+# This means when literally typing `cd /home/$USER/Music/The Beatles`
+# there is nothing the user could possibly be trying to specify other than
+# a path that happens to have spaces in a directory name.
+#
+# Considering fish is already doing extra handling of directory history before executing the `cd` builtin,
+# we can stop being pedantic about enforcing space-separation of multiple arguments for a command that
+# can never have multiple arguments, and thus quote the path automatically for the user.
+#
+# This function may be copied over fish's included `cd.fish` file or renamed:
+# "goto" would be descriptive, or "h" for Dvorak typists ("j" for QWERTY) would be ergonomic.
 #
 function cd --description "Change directory"
     set -l MAX_DIR_HIST 25
 
-    if set -q argv[2]; and begin
-            set -q argv[3]
-            or not test "$argv[1]" = --
-        end
-        printf "%s\n" (_ "Too many args for cd command") >&2
-        return 1
-    end
+    set argv "$argv"
+    test "" = "$argv" && set argv "$HOME"
 
     # Skip history in subshells.
     if status --is-command-substitution
