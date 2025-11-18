@@ -27,3 +27,8 @@ desc = "Delete all bookmarks"
 on   = "<Enter>"
 run  = "plugin smart-enter"
 desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on   = ["."]
+run  = "cd --interactive"
+desc = "Navigate to another directory by typing the path"
