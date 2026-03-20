@@ -1,27 +1,42 @@
 [[mgr.prepend_keymap]]
 on = [ "h" ]
 run = "leave"
+
 desc = "Go up to the parent directory (if any) like the left arrow insead of the default config of previous directory (which could be anywhere)."
+[[mgr.prepend_keymap]]
+on = [ "t" ]
+run = "enter"
+desc = "Go into child directory."
+
+[[mgr.prepend_keymap]]
+on = [ "e" ]
+run = "arrow 1"
+desc = "up"
+
+[[mgr.prepend_keymap]]
+on = [ "u" ]
+run = "arrow -1"
+desc = "down"
 
 [[mgr.prepend_keymap]]
 on = [ "m" ]
-run = "plugin bookmarks save"
-desc = "Save current position as a bookmark"
-
-[[mgr.prepend_keymap]]
-on = [ "'" ]
 run = "plugin bookmarks jump"
 desc = "Jump to a bookmark"
 
 [[mgr.prepend_keymap]]
-on = [ "b", "d" ]
-run = "plugin bookmarks delete"
-desc = "Delete a bookmark"
+on = [ "b" ]
+run = "plugin bookmarks save"
+desc = "Jump to a bookmark"
 
-[[mgr.prepend_keymap]]
-on = [ "b", "D" ]
-run = "plugin bookmarks delete_all"
-desc = "Delete all bookmarks"
+# [[mgr.prepend_keymap]]
+# on = [ "b", "d" ]
+# run = "plugin bookmarks delete"
+# desc = "Delete a bookmark"
+
+# [[mgr.prepend_keymap]]
+# on = [ "b", "D" ]
+# run = "plugin bookmarks delete_all"
+# desc = "Delete all bookmarks"
 
 [[mgr.prepend_keymap]]
 on   = "<Enter>"
@@ -32,3 +47,19 @@ desc = "Enter the child directory, or open the file"
 on   = ["."]
 run  = "cd --interactive"
 desc = "Navigate to another directory by typing the path"
+
+[[mgr.prepend_keymap]]
+on  = "y"
+run = [ "shell -- echo %s | xclip -i -selection clipboard -t text/uri-list", "yank" ]
+
+[[mgr.prepend_keymap]]
+on = "o"
+run = "sort mtime --reverse --dir-first"
+desc = "Sort by modified time (newest first)"
+
+# Override yazi's default behavior of requiring trailing slash to create a directory (instead of file).
+# We're in a file manager, not a text editor or shell, and it is much more likely we want to create dirs instead of empty files.
+[[mgr.prepend_keymap]]
+on = "a"
+run = "create --dir"
+desc = "Create a directory"
