@@ -1,0 +1,7 @@
+! This file manually undoes the modifiations in the accompanying Xmodmap.
+clear Lock
+keycode 66 = Caps_Lock
+keycode 36 = Return
+keycode 22 = BackSpace
+keycode 9 = Escape
+
