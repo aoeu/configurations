@@ -4,12 +4,16 @@ test $# -ne 2 && {
 	echo >&2 $usage
 	exit 1
 }
-mouseName="$(xinput list | grep pointer | grep -i "$1" | cut -f1 | sed 's/⎜   ↳ //; s/       //')"
+mouseName="$(xinput list | grep pointer | grep -i "$1" | cut -f1 | sed -E 's/⎜   ↳ //; s/\s+$//')"
 test "" = "$mouseName" && {
 	echo >&2 "could not find a device name that matched the argument '$1' (is it connected?)"
 	exit 1
 }
 mouseID=$(xinput list --id-only "$mouseName")
+test "" = "$mouseID" && {
+	echo >&2 "expected a numeric ID for to be found by 'xinput list' for '$mouseName' but ended up with '$mouseID'"
+	exit 1
+}
 case $(echo "$2" | cut -c1) in
     l|L) buttonOrder='3 2 1';;
     r|R) buttonOrder='1 2 3';;
