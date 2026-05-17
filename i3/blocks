@@ -1,0 +1,32 @@
+
+[volume]
+# command=muted=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -oP 'yes|no'); vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1); [ "$muted" = "yes" ] && echo "MUTE🔇" || echo "$vol 🕨"
+command=case $BLOCK_BUTTON in 4) pactl set-sink-volume @DEFAULT_SINK@ +5%; pkill -RTMIN+10 i3blocks;; 5) pactl set-sink-volume @DEFAULT_SINK@ -5%; pkill -RTMIN+10 i3blocks;; 3) pactl set-sink-mute @DEFAULT_SINK@ toggle; pkill -RTMIN+10 i3blocks;; esac; muted=$(pactl get-sink-mute @DEFAULT_SINK@ | grep -oP 'yes|no'); vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1); [ "$muted" = "yes" ] && echo "$vol 🔇" || echo "$vol 🕨"
+interval=-1
+signal=10
+SCROLL_UP=pamixer -i 5 && pkill -RTMIN+1 i3blocks
+SCROLL_DOWN=pamixer -d 5 && pkill -RTMIN+1 i3blocks
+markup=pango
+
+[netspeed]
+command=rx1=$(cat /sys/class/net/enp4s0/statistics/rx_bytes); tx1=$(cat /sys/class/net/enp4s0/statistics/tx_bytes); sleep 1; rx2=$(cat /sys/class/net/enp4s0/statistics/rx_bytes); tx2=$(cat /sys/class/net/enp4s0/statistics/tx_bytes); awk -v rx=$((rx2-rx1)) -v tx=$((tx2-tx1)) 'BEGIN{printf "<span color=\"#00FF00\">▼</span> %.2fMB  <span color=\"#00FFFF\">▲</span> %.2fMB\n", rx/1048576, tx/1048576}'
+markup=pango
+interval=2
+
+[cpu]
+command=echo "🖥 $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f%%", usage}')"
+interval=2
+
+[memory]
+command=echo "Ⅲ $(free | awk '/^Mem:/ {print int($3/$2 * 100.0)}')%"
+interval=10
+
+[vpn]
+command=ip link show proton0 >/dev/null && echo "VPN: <span color='#00FF00'>⏻</span> " || echo "VPN: <span color='#8B0000'>⏻</span> "
+interval=30
+markup=pango
+
+[time]
+command=echo "⏱ <span color='#FFFF00'>$(date +%I)</span>:<span color='#00FFFF'>$(date +%M)</span>:<span color='#FFBBFF'>$(date +%S)</span>"
+interval=1
+markup=pango
