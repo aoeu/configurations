@@ -1,0 +1,18 @@
+set mouse=a
+inoremap uu <esc> " for dvorak
+nnoremap <space> :
+vnoremap <space> :
+inoremap <C-enter> <end><enter><up>
+
+map q <Nop>
+set confirm
+call system('test ! -d /home/aoeu/tmp/vim && mkdir -p /home/aoeu/tmp/vim/{swap,undo}')
+set nobackup nowritebackup undofile undodir=/home/aoeu/tmp/vim/undo// directory=/home/aoeu/tmp/vim/swap// " directory actually means swapdir
+
+if has("syntax")
+  au! Syntax
+  augroup syntaxset | au! | au BufEnter * syn clear
+  au BufEnter * if exists("b:current_syntax") | unlet b:current_syntax | endif
+  doautoall syntaxset BufEnter * | au! | augroup END
+  unlet! syntax_on syntax_manual
+endif
